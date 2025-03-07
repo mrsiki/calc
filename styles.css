@@ -1,0 +1,251 @@
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.controls {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.controls label {
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.controls input {
+    padding: 8px;
+    margin-right: 10px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
+}
+
+.controls button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #2980b9;
+}
+
+.text-input {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.text-input label {
+    font-size: 1rem;
+    color: #555;
+
+}
+
+.text-input input {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
+
+}
+
+.text-input button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.text-input button:hover {
+    background-color: #2980b9;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.calendar div {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    min-height: auto; /* 统一单元格高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar div.holiday {
+    background-color: #ffeb3b;
+    font-weight: bold;
+}
+
+.calendar div.holiday::after {
+    content: attr(data-holiday-name);
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+.calendar div.holiday.china {
+    background-color: #ffcccb; /* 中国假日背景色 */
+}
+
+.calendar div.holiday.japan {
+    background-color: #add8e6; /* 日本假日背景色 */
+}
+
+/* 今天的日期样式 */
+.calendar div.today {
+    background-color:#FFDE59; /* 背景 */
+    border-color: #FE9900; /* 边框 */
+    font-weight: bold;
+}
+
+.calendar div.today::after {
+    content: "今天";
+    font-size: 0.6rem;
+}
+
+.calendar div.rest-day::after {
+    //content: "休";
+    display: block;
+    font-size: 0.5rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+.calendar div.adjust-rest-day::after {
+    //content: "调休休息";
+    display: block;
+    font-size: 0.5rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+.calendar div.adjust-work-day::after {
+    //content: "调休工作";
+    display: block;
+    font-size: 0.5rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* 选中日期的样式：改变外框颜色 */
+.calendar div.selected {
+    border-color: #3498db; /* 选中日期的外框颜色 */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* 添加阴影效果 */
+    border-width: 0.5rem 1px  1px   1px;
+}
+
+.selected-days {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .controls input {
+        width: 80px;
+    }
+
+    .text-input input {
+        width: 200px;
+    }
+
+    .calendar div {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .controls input {
+        margin-bottom: 10px;
+    }
+
+    .text-input input {
+        width: 150px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+
+    .calendar div {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
