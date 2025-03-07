@@ -76,7 +76,8 @@ h1 {
 
 .text-input input {
     padding: 8px;
-    width: 300px;
+    //width: 300px;
+    width: 80%;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: 'Noto Sans SC', sans-serif;
@@ -99,6 +100,16 @@ h1 {
 
 .text-input button:hover {
     background-color: #2980b9;
+}
+
+/* 现代浏览器only */
+.hr-twill-colorful {
+    border: 0;
+    padding: 3px;
+    background: linear-gradient(135deg, red, orange,green, blue, purple);
+    --mask-image: repeating-linear-gradient(135deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+    -webkit-mask-image: var(--mask-image);
+    mask-image: var(--mask-image);
 }
 
 .calendar {
@@ -203,6 +214,14 @@ h1 {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+
+.controls {
+    text-align: center;
+}
+.text-input{
+   text-align: center;
+}
+
     h1 {
         font-size: 1.5rem;
     }
