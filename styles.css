@@ -28,7 +28,7 @@ h1 {
 
 .controls {
     margin-bottom: 20px;
-    text-align: center;
+    //text-align: center;
 }
 
 .controls label {
@@ -65,7 +65,7 @@ h1 {
 
 .text-input {
     margin-bottom: 20px;
-    text-align: center;
+    //text-align: center;
 }
 
 .text-input label {
@@ -138,9 +138,9 @@ h1 {
 .calendar div.holiday::after {
     content: attr(data-holiday-name);
     display: block;
-    font-size: 0.9rem;
+    //font-size: 30rem;
     color: #333;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 .calendar div.holiday.china {
@@ -160,31 +160,31 @@ h1 {
 
 .calendar div.today::after {
     content: "今天";
-    font-size: 0.6rem;
+    font-size: 0.5rem;
 }
 
 .calendar div.rest-day::after {
     //content: "休";
     display: block;
-    font-size: 0.5rem;
+    font-size: 0.3rem;
     color: #333;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 .calendar div.adjust-rest-day::after {
     //content: "调休休息";
     display: block;
-    font-size: 0.5rem;
+    font-size: 0.3rem;
     color: #333;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 .calendar div.adjust-work-day::after {
     //content: "调休工作";
     display: block;
-    font-size: 0.5rem;
+    font-size: 0.3rem;
     color: #333;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 /* 选中日期的样式：改变外框颜色 */

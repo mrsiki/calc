@@ -177,13 +177,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 判断是否是调休休息日（示例逻辑，需根据实际调休规则调整）
     function isAdjustRestDay(dateStr) {
-        const adjustRestDays = ['2023-10-06']; // 示例调休休息日
-        return adjustRestDays.includes(dateStr);
+        //const adjustRestDays = ['2023-10-06']; // 示例调休休息日
+        //return adjustRestDays.includes(dateStr);
     }
 
     // 判断是否是调休工作日（示例逻辑，需根据实际调休规则调整）
     function isAdjustWorkDay(dateStr) {
-        const adjustWorkDays = ['2023-10-07']; // 示例调休工作日
-        return adjustWorkDays.includes(dateStr);
+        //const adjustWorkDays = ['2023-10-07']; // 示例调休工作日
+        //return adjustWorkDays.includes(dateStr);
     }
 });
