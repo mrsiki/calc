@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电话计费对账系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>电话计费对账系统</h1>
+        
+        <div class="controls">
+            <button id="saveData">保存数据</button>
+            <input type="file" id="loadDataInput" accept=".json" style="display: none;">
+            <button id="loadData">加载数据</button>
+            <button id="monthlyReport">月度报表</button>
+            <button id="exportWebpage">导出网页</button>
+        </div>
+        
+        <div class="records-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>通话日期</th>
+                        <th>通话时长(分钟)</th>
+                        <th>计费方式</th>
+                        <th>通话费用(元)</th>
+                        <th>图片</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsBody">
+                    <tr id="addRow">
+                        <td>+</td>
+                        <td><input type="date" id="newCallDate"></td>
+                        <td><input type="number" id="newCallDuration" min="1"></td>
+                        <td>
+                            <select id="newBillingMethod">
+                                <option value="5start">5元起步(首分钟5元，之后每分钟2元)</option>
+                                <option value="6start">6元起步(首分钟6元，之后每分钟1.89元)</option>
+                                <option value="5permin">5元续费(每分钟2元)</option>
+                                <option value="6permin">6元续费(每分钟1.89元)</option>
+                                <option value="custom">自定义计费</option>
+                            </select>
+                            <div id="customBillingFields" class="hidden">
+                                <input type="number" id="customFirstMinute" min="0" placeholder="首分钟费用" value="5">
+                                <input type="number" id="customAdditionalMinute" min="0" placeholder="后续每分钟" value="2" step="0.01">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="number" id="newCallCost" readonly>
+                            <div id="costCalculation"></div>
+                        </td>
+                        <td>
+                            <input type="file" id="newCallImage" accept="image/*" multiple>
+                            <div id="imagePreviews" class="image-previews"></div>
+                            <div id="pasteArea" class="paste-hint">或直接在此处粘贴图片</div>
+                        </td>
+                        <td><input type="text" id="newCallNote" placeholder="备注信息" class="note-input"></td>
+                        <td><button id="addNewRecord">添加</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">总计</td>
+                        <td></td>
+                        <td id="totalCost">0</td>
+                        <td colspan="3"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="modal hidden" id="monthlyModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>月度通话统计</h2>
+                <div id="monthlyStats"></div>
+            </div>
+        </div>
+        
+        <div class="modal hidden" id="imageModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modalImage" src="" alt="通话记录参考图片">
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
